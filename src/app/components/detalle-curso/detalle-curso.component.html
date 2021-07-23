@@ -1,0 +1,70 @@
+<div class="content">
+
+
+  
+  <mat-toolbar style=color:white;background-color:#8BC34A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 style="font-size: xx-large;">Cursos
+      
+  </h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  mat-raised-button style=color:white;background-color:#FF9800;float:right;>Soy Instructor</button></mat-toolbar>
+  <mat-toolbar style="color:white; background-color: #8BC34A;">
+    <div>
+      Entrenamiento Deportivo para todas las edades, acompañado de Instructores Profesionales, algunos de los cursos  brindan los profesionales son: <br>Futbol,Basquet,Tennis,Rugby,Resistencia Fisica ect.
+    <span class="example-spacer"></span>
+  </div>
+  </mat-toolbar>
+  <mat-toolbar style=color:white;background-color:#8BC34A>
+  ¿Te Animarias  a sumarte?
+  </mat-toolbar>
+
+  <mat-grid-list  cols="4" rowHeight="1:1">
+    <mat-grid-tile [colspan]="3" [rowspan]="1" >
+      <img class="imagenes"  src={{this.imagen}} alt="Photo of a Shiba Inu">
+    </mat-grid-tile>
+    <mat-grid-tile style="background-color: grey;" [colspan]="1">
+    
+  <p style="font-weight: 550;"><span style="background-color: darkgrey;">Profesor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.profesor}}</span>
+    <br>
+    <br>
+   <span style="background-color: darkgrey;">Precio Inscripcion: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.precioInscripcion |currency}}</span>
+    <br>
+    <br>
+    <span style="font-weight: 550;background-color: darkgray;">Cuota:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.precioCuota | currency}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <br>
+    <br>
+    <span  style="font-weight: 550;background-color: darkgray">Horario:&nbsp;&nbsp;<br></span>
+    <span  style="font-weight: 550;background-color:darkgray" *ngFor="let season of seasons"  >{{season}}, </span>
+      
+  
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  mat-raised-button style=color:white;background-color:#8BC34a; (click)="inscripcion()" (click)=id(this.cService.idCurso)>Inscribirme</button>
+  </p>
+     
+
+    </mat-grid-tile>
+    <br>
+  </mat-grid-list>
+  
+    <mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-tile [colspan]="3" >
+      <p style="font-weight: 550;">Descripcion:<br>{{this.descripcion}}</p>
+     
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" >
+      <p style="font-weight: 550;">Requisitos: <br>{{this.requisitos}}</p>
+      
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" >
+      <p style="font-weight: 550;">A quien va dirigido?<br> {{this.publicoDestinado}}</p>
+      
+    </mat-grid-tile>
+    </mat-grid-list>
+    
+  
+    
+
+</div>

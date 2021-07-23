@@ -1,0 +1,39 @@
+
+<div class="content">
+
+
+  <mat-toolbar style=color:white;background-color:#8BC34A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 style="font-size: xx-large;">Cursos
+      
+    </h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  mat-raised-button style=color:white;background-color:#FF9800;float:right;>Soy Instructor</button></mat-toolbar>
+    <mat-toolbar style="color:white; background-color: #8BC34A;">
+      <div>
+        Entrenamiento Deportivo para todas las edades, acompañado de Instructores Profesionales, algunos de los cursos  brindan los profesionales son: <br>Futbol,Basquet,Tennis,Rugby,Resistencia Fisica ect.
+      <span class="example-spacer"></span>
+    </div>
+    </mat-toolbar>
+    <mat-toolbar style=color:white;background-color:#8BC34A>
+    ¿Te Animarias  a sumarte?
+    </mat-toolbar>
+    
+          <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let curso of cursos">
+              <mat-card  class="mat-elevation-z4" routerLink="/detalles" (click)=verificacion(curso.idCurso)>
+                <mat-card-header>
+                  <p style="font-weight: 1000;">{{curso.nombreCurso | uppercase}}</p>
+                </mat-card-header>
+                <img class="imagenes" mat-card-image src={{curso.url_imagen_presentacion}} alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p style="font-weight: 550;">{{curso.descripcion}}</p>
+                  <p style="font-weight: 550;">Publico destinado:<br>{{curso.publico_destinado}}</p>
+                </mat-card-content>
+                <mat-card-footer>
+                  <img mat-card-avatar src="{{curso.instructor.foto}}">
+                   <span style="font-weight: 1000;">Entrenador :{{curso.instructor.nombre | uppercase}}</span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <span style="font-weight: 1000;"> {{curso.precio_inscripcion | currency}}</span>
+                </mat-card-footer>
+              </mat-card>
+            </div>
+          </div>
+       
+</div>
+ 

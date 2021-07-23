@@ -1,0 +1,149 @@
+<mat-horizontal-stepper linear>
+    <mat-step label="Elija Comision" >
+      <p>{{titulo}}</p>
+    
+      <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="favoriteSeason">
+      <mat-radio-button   *ngFor="let season of seasons" [value]="season" (change)="radioChangeHandler(favoriteSeason)"  >
+    <i> {{season}}</i> 
+  </mat-radio-button>
+</mat-radio-group>
+<div>Horario de la comision elegida: {{favoriteSeason}}</div>
+<div>Detalle</div>
+<div>Precio: {{precioInscripcion}}</div>
+
+      <button mat-raised-button mat-dialog-close color="warn">Volver</button>&nbsp;&nbsp;
+      <button mat-raised-button matStepperNext color="primary"  >Confirmar</button>
+    </mat-step>
+    <mat-step label="Datos Personales" >
+    
+
+  
+      <form [formGroup]="datosForm"> 
+
+        <mat-form-field class="form-field">
+          <mat-label> Nombre </mat-label>
+          <input matInput formControlName="nombres" required>
+          <mat-error *ngIf="datosForm.controls.nombres.touched && datosForm.controls.nombres.invalid">
+            <span *ngIf="datosForm.controls.nombres.errors">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        &nbsp;
+          <mat-form-field class="form-field">
+            <mat-label> Apellido </mat-label>
+            <input matInput formControlName="apellidos" required>
+            <mat-error *ngIf="datosForm.controls.apellidos.touched && datosForm.controls.apellidos.invalid">
+              <span *ngIf="datosForm.controls.apellidos.errors">Campo obligatorio</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>DNI</mat-label>
+          <input matInput formControlName="dni" required>
+          <mat-error *ngIF="datosForm.controls.dni.touched && datosForm.controls.dni.invalid">
+            <span *ngIf="datosForm.controls.dni.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        &nbsp;
+
+        
+        
+        
+
+        <mat-form-field>
+          <mat-label>Fecha de Nacimiento</mat-label>
+          
+          <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="datosForm.controls.fechaNacimiento.touched && datosForm.controls.fechaNacimiento.invalid">
+            <span *ngIf="datosForm.controls.fechaNacimiento.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Celular</mat-label>
+          <input matInput formControlName="celular" required> 
+          <mat-error *ngIf="datosForm.controls.celular.touched && datosForm.controls.celular.invalid">
+            <span *ngIf="datosForm.controls.celular.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="mail" required>
+          <mat-error *ngIf="datosForm.controls.mail.touched && datosForm.controls.mail.invalid">
+            <span *ngIf="datosForm.controls.mail.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <br>
+        <span> <strong>Domicilio</strong></span>
+        <br>
+        <mat-form-field>
+          <mat-label>Elija una localidad</mat-label>
+          
+          <mat-select [(value)]="selected" formControlName="direccion_localidad">
+            
+            <mat-option [value]="direccion_localidad" *ngFor="let direccion_localidad of localidades">{{direccion_localidad.nombre}}
+            </mat-option>
+            
+          </mat-select>
+          
+        </mat-form-field>
+
+        &nbsp;
+        <mat-form-field>
+          <mat-label>Barrio</mat-label>
+          <input matInput formControlName="direccionBarrio" required>
+          <mat-error *ngIf="datosForm.controls.direccionBarrio.touched && datosForm.controls.direccionBarrio.invalid">
+            <span *ngIf="datosForm.controls.direccionBarrio.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        
+        <mat-form-field>
+          <mat-label>Calle</mat-label>
+          <input matInput formControlName="direccionCalle" required>
+          <mat-error *ngIf="datosForm.controls.direccionCalle.touched && datosForm.controls.direccionCalle.invalid">
+            <span *ngIf="datosForm.controls.direccionCalle.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        &nbsp;
+
+        <mat-form-field>
+          <mat-label>Nro</mat-label>
+          <input matInput formControlName="direccionNumero" required>
+          <mat-error *ngIf="datosForm.controls.direccionNumero.touched && datosForm.controls.direccionNumero.invalid">
+            <span *ngIf="datosForm.controls.direccionNumero.errors">Campo Obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+        <button mat-raised-button matStepperPrevious color="warn">Volver</button> &nbsp;&nbsp;
+        <button mat-raised-button matStepperNext color="primary" (click)="altaAlumno()" (click)="horarioComision()" >Confirmar</button>
+      
+    </form>
+    
+      
+    </mat-step>
+    <mat-step label="Pago" complete=true>
+      <strong>Detalle</strong>
+      <br>
+      
+     <p>{{favoriteSeason}}</p> 
+     <br>
+     <br>
+     <p>Inscripción: ${{precioInscripcion}}</p>
+     <br>
+     <br>
+     <p><strong>Una vez que completes el pago<br> ya estaras incripto en el curso</strong>
+     </p>
+
+      <button mat-raised-button matStepperNext mat-dialog-close color="primary"      (click)="inscribir()" (click)="pagoExitoso()">Inscribirme</button>
+    </mat-step>
+
+</mat-horizontal-stepper>
